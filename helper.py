@@ -32,6 +32,7 @@ def fetch_stats(selected_user,df):
     return num_messages,len(words),num_media_messages,len(links)
 
 def most_busy_users(df):
+    df = df[df['user'] != 'group_notification']
     x = df['user'].value_counts().head(2)
     df = round((df['user'].value_counts() / df.shape[0]) * 100, 2).reset_index().rename(
         columns={'index': 'name', 'user': 'percent'})
@@ -61,7 +62,7 @@ def create_wordcloud(selected_user, df):
 
     # Remove stop words from messages
     def remove_stop_words(message):
-        y = [word for word in message.lower().split() if word not in stop_words]
+        y = [word for word in message.lower().split() if word not in stop_words and word != 'null']
         return " ".join(y)
 
     temp['message'] = temp['message'].apply(remove_stop_words)
@@ -80,7 +81,7 @@ def create_wordcloud(selected_user, df):
     return df_wc
 
 def most_common_words(selected_user,df):
-
+    df = df[df['user'] != 'group_notification']          # removed grp notification
     f = open('stop_hinglish.txt','r')
     stop_words = f.read()
 
@@ -98,7 +99,7 @@ def most_common_words(selected_user,df):
                 words.append(word)
 
     most_common_df = pd.DataFrame(Counter(words).most_common(20))
-    return most_common_df
+    return most_common_df[2:]
 
 
 def emoji_helper(selected_user, df):
@@ -169,6 +170,7 @@ def activity_heatmap(selected_user,df):
 
 # add ons
 def message_length_stats(selected_user, df):
+    df = df[df['user'] != 'group_notification']
     if selected_user != 'Overall':
         df = df[df['user'] == selected_user]
 
@@ -353,6 +355,7 @@ def aggregate_sentiment_by_user_and_date(df, sentiment_func):
     Returns:
     pd.DataFrame: Dataframe with aggregated sentiment scores by user and date.
     """
+    df = df[df['user'] != 'group_notification']         # changed here aswell
     df['sentiment'] = df['message'].apply(sentiment_func)
     df['date'] = pd.to_datetime(df['only_date']).dt.date  # Extract date only
     sentiment_by_user_and_date = df.groupby(['user', 'date'])['sentiment'].mean().reset_index()
