@@ -109,11 +109,15 @@ if uploaded_file is not None:
         # Display the network plot
         st.title("📶 Reply Network")
         helper.plot_reply_network(G)
+        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Generate and display the steamgraph
         st.title("📊 Message Activity Over Time (Loudest and Quietest Users)")
         fig = helper.plot_steamgraph(loudest_data, quietest_data)
         st.plotly_chart(fig)
+        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Monthly Timeline
         st.title("📅 Monthly Timeline")
@@ -122,6 +126,8 @@ if uploaded_file is not None:
         ax.plot(timeline['time'], timeline['message'], color='gold', linewidth=2)
         ax.set_xticklabels(timeline['time'], rotation=45, ha='right')
         st.pyplot(fig)
+        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Daily Timeline
         st.title("📅 Daily Timeline")
@@ -130,6 +136,8 @@ if uploaded_file is not None:
         ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='violet', linewidth=2)
         ax.set_xticklabels(daily_timeline['only_date'], rotation=45, ha='right')
         st.pyplot(fig)
+        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Activity Map
         st.title("🗓 Activity Map")
@@ -150,6 +158,8 @@ if uploaded_file is not None:
             ax.bar(busy_month.index, busy_month.values, color='orchid')
             ax.set_xticklabels(busy_month.index, rotation=45, ha='right')
             st.pyplot(fig)
+        st.markdown("<h4 style='color: #FFC0CB;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Weekly Activity Heatmap
         st.title("📊 Weekly Activity Heatmap")
@@ -157,6 +167,8 @@ if uploaded_file is not None:
         fig, ax = plt.subplots(figsize=(10, 6))
         ax = sns.heatmap(user_heatmap, annot=True, fmt="d", cmap="coolwarm", linewidths=0.5)
         st.pyplot(fig)
+        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Most Busy Users in the Group (Overall level)
         if selected_user == 'Overall':
@@ -172,6 +184,8 @@ if uploaded_file is not None:
                 st.pyplot(fig)
             with col2:
                 st.dataframe(new_df)
+                st.markdown("<h4 style='color: black;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Wordcloud
         st.title("🌸 Wordcloud")
@@ -180,6 +194,8 @@ if uploaded_file is not None:
         ax.imshow(df_wc, interpolation="bilinear")
         ax.axis("off")
         st.pyplot(fig)
+        st.markdown("<h4 style='color: #45902A;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         # Most Common Words
         st.title("🔠 Most Common Words")
@@ -190,6 +206,8 @@ if uploaded_file is not None:
         ax.set_ylabel("Words", fontsize=12)
         plt.xticks(rotation=90)
         st.pyplot(fig)
+        st.markdown("<h4 style='color: #E96CDA;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
         st.title("📈 Word Usage Trends")
         words_of_interest = ['love', 'anger', 'happy', 'sad']
@@ -199,6 +217,8 @@ if uploaded_file is not None:
         # Choose between Matplotlib or Seaborn
         st.header("Matplotlib Visualization")
         helper.plot_word_trends_matplotlib(word_trend_df, words_of_interest)
+        st.markdown("<h4 style='color: #5DCA31;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
 
 
         st.title("📊 Sentiment Comparison Over Time")
@@ -231,6 +251,7 @@ if uploaded_file is not None:
         plt.grid(True)
         plt.tight_layout()
         st.pyplot(plt)  # Render plot in Streamlit
+        st.markdown("<h4 style='color: #EE7676;'>This shows that most of our convos are neautral, hence the 0 sentiment score, but predominatnly we are on the positve side which shows they are mostly happy nd a little sad more in the period from August 23 to january 2024 maybe coz i was leaving nd then it was unclear the situation between us coz of the septum. Also the places where cross and dots are together means we agreed with each others views(which we did most of the times) </h4>", unsafe_allow_html=True)
 
 
         # Emoji Analysis
@@ -240,6 +261,8 @@ if uploaded_file is not None:
 
         with col1:
             st.dataframe(emoji_df)
+            st.markdown("<h4 style='color: black;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
         with col2:
             fig, ax = plt.subplots(figsize=(6, 6))
             ax.pie(emoji_df['Count'].head(), labels=emoji_df['Emoji'].head(), autopct="%0.2f", colors=sns.color_palette("Set2", len(emoji_df['Emoji'].head())))
