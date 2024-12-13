@@ -109,14 +109,21 @@ if uploaded_file is not None:
         # Display the network plot
         st.title("📶 Reply Network")
         helper.plot_reply_network(G)
-        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #BDDFEB;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
         # Generate and display the steamgraph
         st.title("📊 Message Activity Over Time (Loudest and Quietest Users)")
         fig = helper.plot_steamgraph(loudest_data, quietest_data)
         st.plotly_chart(fig)
-        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        <ul style="color: #5A8EE3;">
+            <li>Both of us exhibit periods of high activity, with visible spikes in certain months.</li>
+            <li>Activity is largely aligned, suggesting that our message counts rise and fall together, which indicates responsive conversations or shared periods of engagement. Aww!</li>
+            <li>The highest peaks occurred around early 2024, where My dearest PEACHIE-PIE has slightly more messages than me myself, very shockingly indicating my bubs contributes slightly more at peak times. Yaar tbh, I never knew this yaar... Thx, bubs!</li>
+            <li>Consistent interaction with matching trends highlights a strong conversational relationship, with neither of us significantly dominating overall.. hehe</li>
+        </ul>
+        """, unsafe_allow_html=True)
 
 
         # Monthly Timeline
@@ -126,7 +133,15 @@ if uploaded_file is not None:
         ax.plot(timeline['time'], timeline['message'], color='gold', linewidth=2)
         ax.set_xticklabels(timeline['time'], rotation=45, ha='right')
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        <ul style="color: #FFD808;">
+            <li><b>Relationship Growth:</b> There is a gradual and consistent increase in activity over time, with a significant surge starting in early 2024.</li>
+            <li><b>Sharp Peak:</b> The chart exhibits a dramatic spike in message activity, reaching its highest point in mid-2024 (above 17,500 messages).</li>
+            <li><b>Stability and Drop:</b> Following the peak, the activity stabilizes at a slightly lower level before a sharp decline toward the end of 2024 maybe coz we started being a less lovey dovey nd focussing more on our interships and padhai and also restricting chats to calls at the time i was out of my home.</li>
+            <li><b>Quiet Start:</b> The early periods (2022–2023) show relatively low and consistent message counts, indicating minimal activity.</li>
+            <li><b>Breakthrough Year:</b> 2024 marks a breakthrough in our activity, with rapid and significant growth compared to previous years. thanks bub for comin into ma world!</li>
+        </ul>
+        """, unsafe_allow_html=True)
 
 
         # Daily Timeline
@@ -136,7 +151,7 @@ if uploaded_file is not None:
         ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='violet', linewidth=2)
         ax.set_xticklabels(daily_timeline['only_date'], rotation=45, ha='right')
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #EE82EE;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
         # Activity Map
@@ -167,7 +182,7 @@ if uploaded_file is not None:
         fig, ax = plt.subplots(figsize=(10, 6))
         ax = sns.heatmap(user_heatmap, annot=True, fmt="d", cmap="coolwarm", linewidths=0.5)
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #5A8EE3;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #465DCF;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
         # Most Busy Users in the Group (Overall level)
@@ -194,7 +209,7 @@ if uploaded_file is not None:
         ax.imshow(df_wc, interpolation="bilinear")
         ax.axis("off")
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #45902A;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #1fa187;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
         # Most Common Words
@@ -206,7 +221,7 @@ if uploaded_file is not None:
         ax.set_ylabel("Words", fontsize=12)
         plt.xticks(rotation=90)
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #E96CDA;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #da70d6;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
         st.title("📈 Word Usage Trends")
@@ -217,7 +232,7 @@ if uploaded_file is not None:
         # Choose between Matplotlib or Seaborn
         st.header("Matplotlib Visualization")
         helper.plot_word_trends_matplotlib(word_trend_df, words_of_interest)
-        st.markdown("<h4 style='color: #5DCA31;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #2ca02c;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
 
 
 
@@ -251,7 +266,7 @@ if uploaded_file is not None:
         plt.grid(True)
         plt.tight_layout()
         st.pyplot(plt)  # Render plot in Streamlit
-        st.markdown("<h4 style='color: #EE7676;'>This shows that most of our convos are neautral, hence the 0 sentiment score, but predominatnly we are on the positve side which shows they are mostly happy nd a little sad more in the period from August 23 to january 2024 maybe coz i was leaving nd then it was unclear the situation between us coz of the septum. Also the places where cross and dots are together means we agreed with each others views(which we did most of the times) </h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #ff0000;'>This shows that most of our convos are neautral, hence the 0 sentiment score, but predominatnly we are on the positve side which shows they are mostly happy nd a little sad more in the period from August 23 to january 2024 maybe coz i was leaving nd then it was unclear the situation between us coz of the septum. Also the places where cross and dots are together means we agreed with each others views(which we did most of the times) </h4>", unsafe_allow_html=True)
 
 
         # Emoji Analysis
