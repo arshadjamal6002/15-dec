@@ -6,7 +6,7 @@ import pandas as pd
 
 # Set a pleasant theme with Streamlit
 st.set_page_config(page_title="Whatsapp Chat Analyzer", page_icon="💖", layout="wide")
-st.sidebar.title("add sidebar title here")
+st.sidebar.title("Happy Birthday Ladi Blossom 💖")
 
 # Updated Custom Styling
 # Updated Custom Styling
@@ -79,7 +79,7 @@ if uploaded_file is not None:
         # Media Stats (Pictures, Audio, etc.)
         num_images, num_audio, num_video = helper.media_stats(selected_user, df)
         
-        st.title("✨ stats 🎉")
+        st.title("✨ Birthday stats 🎉")
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
@@ -151,7 +151,12 @@ if uploaded_file is not None:
         ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='violet', linewidth=2)
         ax.set_xticklabels(daily_timeline['only_date'], rotation=45, ha='right')
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #EE82EE;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - **Gradual Start:** The timeline begins with low and consistent message activity from June 2022 to July 2022 since we were just in the phases of close friends.
+        - **Initial Growth:** A noticeable increase starts around late July 2022, with activity rising steadily as this time u started to tel me abt your septum thingy
+        - **Consistent Spikes:** From August 2022 to early January 2023, there are frequent spikes, suggesting intermittent bursts of high engagement uk why!
+        - **Major Surge:** A dramatic rise in activity occurs around mid-January 2023, where message counts reach new highs, peaking at over 1,000 messages per day. daymmm
+        """)
 
 
         # Activity Map
@@ -173,7 +178,23 @@ if uploaded_file is not None:
             ax.bar(busy_month.index, busy_month.values, color='orchid')
             ax.set_xticklabels(busy_month.index, rotation=45, ha='right')
             st.pyplot(fig)
-        st.markdown("<h4 style='color: #FFC0CB;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+
+        st.markdown("""
+        - **Top Days:**  
+            - Thursday, Tuesday, and Saturday emerge as the busiest days, showing nearly equal activity levels.  
+            - Friday, Monday, and Sunday follow closely with slightly lower message counts cz usual you dont wanna get up on weekends....zzz  
+        - **Lowest Activity Day:**  
+            - Wednesday has the least activity compared to other days.(hmm thats interesting to think abt)
+        """)
+
+        st.markdown("""
+        - **Peak Month:**  
+            - **July** records the highest activity, with over 17,000 messages, making it the most engaged month. coz it all started in july nd i also came to see ya in july after my exchange  
+        - **Other Busy Months:**  
+            - November, October, and September also display high activity, with significant message counts.  
+        - **Gradual Decline:**  
+            - Activity drops steadily from August to May, with **May** showing the lowest engagement cz in May we were just beginning to have convos.. ywt im glad i did turned out to be the most beautiful ladi with the most beautiful soul.
+        """)
 
 
         # Weekly Activity Heatmap
@@ -182,8 +203,24 @@ if uploaded_file is not None:
         fig, ax = plt.subplots(figsize=(10, 6))
         ax = sns.heatmap(user_heatmap, annot=True, fmt="d", cmap="coolwarm", linewidths=0.5)
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #465DCF;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("""
+        - **Peak Activity Hours:**  
+            - Activity is highest between **10 PM and 12 AM**, particularly on Fridays and Sundays, as indicated by the red zones in the heatmap.
+        
+        - **Consistent Evening Engagement:**  
+            - A noticeable level of engagement occurs between **8 PM and 10 PM** across all days, MHMMM
 
+        - **Low Activity Periods:**  
+            - Early morning hours, specifically **4 AM to 7 AM**, exhibit minimal activity across all days coz someone doesnt wanna wake up early!
+            - Activity gradually increases after **10 AM**, with consistent engagement throughout the afternoon and evening.
+
+        - **Day-Specific Trends:**  
+            - **Friday** and **Sunday** have the most notable spikes in activity late at night.
+            - **Wednesday** and **Tuesday** display comparatively lower activity overall.
+
+        - **Overall Pattern:**  
+            - Weekday activity is relatively consistent, while weekends see noticeable peaks late at night. coz dinbhar she sleeps...
+        """)
 
         # Most Busy Users in the Group (Overall level)
         if selected_user == 'Overall':
@@ -199,7 +236,7 @@ if uploaded_file is not None:
                 st.pyplot(fig)
             with col2:
                 st.dataframe(new_df)
-                st.markdown("<h4 style='color: black;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+                st.markdown("<h4 style='color: black;'>UK what, i used to think that im the one who is most active on chats but oh my ladi blossom even proved me wrong in this as well.</h4>", unsafe_allow_html=True)
 
 
         # Wordcloud
@@ -209,7 +246,7 @@ if uploaded_file is not None:
         ax.imshow(df_wc, interpolation="bilinear")
         ax.axis("off")
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #1fa187;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #1fa187;'>The most vivid inference u can get from this is out of all words weve exchanged it all STILL REVOLVES AROUND *U*!</h4>", unsafe_allow_html=True)
 
 
         # Most Common Words
@@ -221,7 +258,8 @@ if uploaded_file is not None:
         ax.set_ylabel("Words", fontsize=12)
         plt.xticks(rotation=90)
         st.pyplot(fig)
-        st.markdown("<h4 style='color: #da70d6;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #da70d6;'>*YAAR* is the most common of all words amongst us resembling that amidst this love we still are forever friends forever the study partners we were in the beginning.</h4>", unsafe_allow_html=True)
+
 
 
         st.title("📈 Word Usage Trends")
@@ -232,7 +270,8 @@ if uploaded_file is not None:
         # Choose between Matplotlib or Seaborn
         st.header("Matplotlib Visualization")
         helper.plot_word_trends_matplotlib(word_trend_df, words_of_interest)
-        st.markdown("<h4 style='color: #2ca02c;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: #2ca02c;'>Out of everything else , Love continued to grow all thru out nd wd always bubs</h4>", unsafe_allow_html=True)
+
 
 
 
@@ -276,7 +315,7 @@ if uploaded_file is not None:
 
         with col1:
             st.dataframe(emoji_df)
-            st.markdown("<h4 style='color: black;'>The graph represents a highly active one-on-one conversation between us, nd the size of the nodes represents the contributions of the users which are relatively equal in our case...</h4>", unsafe_allow_html=True)
+            st.markdown("<h4 style='color: black;'>the most common used emoji is still the one which ive been using forever...</h4>", unsafe_allow_html=True)
 
         with col2:
             fig, ax = plt.subplots(figsize=(6, 6))
